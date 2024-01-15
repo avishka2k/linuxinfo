@@ -1,0 +1,14 @@
+Source: my_flask_app
+Section: web
+Priority: optional
+Maintainer: Your Name <your.email@example.com>
+Build-Depends: debhelper (>= 12)
+Standards-Version: 4.5.0
+Homepage: http://www.yourwebsite.com
+Vcs-Git: https://github.com/yourusername/yourrepository.git
+Vcs-Browser: https://github.com/yourusername/yourrepository
+
+Package: my_flask_app
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}
+Description: Your Flask Application

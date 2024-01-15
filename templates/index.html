@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Info</title>
+</head>
+<body>
+
+<div id="system-info-container">
+    <h1>System Information</h1>
+    <p id="system-info"></p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Make AJAX request to the Flask API endpoint
+        $.ajax({
+            url: '/api/system-info',
+            type: 'GET',
+            success: function(response) {
+                // Update the DOM with the retrieved system information
+                $('#system-info').text(response.system_info);
+            },
+            error: function(error) {
+                console.error(error);
+                $('#system-info').text('Error retrieving system information');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
