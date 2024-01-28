@@ -13,23 +13,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $(document).ready(function() {
-        // Make AJAX request to the Flask API endpoint
-        $.ajax({
-            url: '/api/system-info',
-            type: 'GET',
-            success: function(response) {
-                // Update the DOM with the retrieved system information
-                $('#system-info').text(response.system_info);
-            },
-            error: function(error) {
-                console.error(error);
-                $('#system-info').text('Error retrieving system information');
-            }
-        });
-    });
-</script>
+
 
 </body>
 </html>
