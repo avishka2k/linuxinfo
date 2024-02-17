@@ -24,8 +24,9 @@
 
 # if __name__ == '__main__':
 #     app.run(host='0.0.0.0', port=5050, debug=True)
-from flask import Flask
+from flask import Flask, jsonify
 from info import get_system_info
+import psutil
 
 app = Flask(__name__)
 
@@ -33,6 +34,11 @@ app = Flask(__name__)
 @app.route('/api/system/info', methods=['GET'])
 def system_info():
     return get_system_info()
+
+@app.route('/api/cpu/performance', methods=['GET'])
+def cpu_performance():
+    cpu_percent = psutil.cpu_percent(interval=1, percpu=True)
+    return jsonify({'cpu_percent': cpu_percent})
 
 if __name__ == '__main__':
     app.run(debug=True)
