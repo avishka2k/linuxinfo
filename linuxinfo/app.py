@@ -27,9 +27,10 @@
 from flask import Flask, jsonify
 from info import get_system_info
 import psutil
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/api/system/info', methods=['GET'])
 def system_info():

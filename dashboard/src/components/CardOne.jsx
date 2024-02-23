@@ -1,29 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import useFetchData from '../hooks/fetchData';
 
 const CardOne = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  
+  const { data, loading, error } = useFetchData('http://127.0.0.1:5000/api/system/info');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/api/system/info'); // Replace with your API endpoint
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
   return (
     <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
@@ -45,11 +25,15 @@ const CardOne = () => {
           />
         </svg>
       </div>
-
+      {loading ? (
+        <div className="flex items-center justify-center h-32">
+          Loading...
+        </div>
+      ) : (
       <div className="mt-4 flex items-end justify-between">
         <div>
           <h4 className="text-title-md font-bold text-black dark:text-white">
-            $3.456K
+          {data.disk_info.available}/{data.disk_info.total}
           </h4>
           <span className="text-sm font-medium">Total views</span>
         </div>
@@ -71,6 +55,8 @@ const CardOne = () => {
           </svg>
         </span>
       </div>
+      )
+      }
     </div>
   );
 };
