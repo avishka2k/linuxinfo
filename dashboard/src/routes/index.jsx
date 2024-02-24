@@ -10,6 +10,7 @@ const Settings = lazy(() => import('../pages/Settings'));
 const Tables = lazy(() => import('../pages/Tables'));
 const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
 const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
+const Users = lazy(() => import('../pages/Users/Users'));
 
 const coreRoutes = [
   {
@@ -61,6 +62,11 @@ const coreRoutes = [
     path: '/ui/buttons',
     title: 'Buttons',
     component: Buttons,
+  },
+  {
+    path: '/users',
+    title: 'Users',
+    component: Users,
   },
 ];
 

@@ -293,6 +293,31 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               </li>
               {/* <!-- Category --> */}
 
+              {/* <!-- Users --> */}
+              <li>
+                <NavLink
+                  to="/users"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('users') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <svg
+                    className="fill-current"
+                    width="19"
+                    height="19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="1 0 30 30"
+                    id="puzzle"
+                  >
+                    <path d="M22,31H16a1,1,0,0,1-1-1V27a2,2,0,0,0-4,0v3a1,1,0,0,1-1,1H4a3,3,0,0,1-3-3V22a1,1,0,0,1,1-1H5a2,2,0,0,0,0-4H2a1,1,0,0,1-1-1V10A3,3,0,0,1,4,7H9V5a4,4,0,0,1,8,0V7h5a3,3,0,0,1,3,3v5h2a4,4,0,0,1,0,8H25v5A3,3,0,0,1,22,31Zm-5-2h5a1,1,0,0,0,1-1V22a1,1,0,0,1,1-1h3a2,2,0,0,0,0-4H24a1,1,0,0,1-1-1V10a1,1,0,0,0-1-1H16a1,1,0,0,1-1-1V5a2,2,0,0,0-4,0V8a1,1,0,0,1-1,1H4a1,1,0,0,0-1,1v5H5a4,4,0,0,1,0,8H3v5a1,1,0,0,0,1,1H9V27a4,4,0,0,1,8,0Z"></path>
+                  </svg>
+                  Users
+                </NavLink>
+              </li>
+              {/* <!-- Users --> */}
+
               {/* <!-- Menu Item Profile --> */}
               <li>
                 <NavLink
